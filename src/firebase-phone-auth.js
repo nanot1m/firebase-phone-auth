@@ -15,7 +15,7 @@
           },
           defaultCountry: "RU",
           defaultNationalNumber: "",
-          loginHint: "+79997654321"
+          loginHint: ""
         }
       ],
       callbacks: {
