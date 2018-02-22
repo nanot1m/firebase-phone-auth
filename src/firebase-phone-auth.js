@@ -26,7 +26,8 @@
           window.postMessage(
             JSON.stringify({
               success: true,
-              currentUser: currentUser
+              currentUser: currentUser,
+              credential: credential
             })
           );
           return true;
