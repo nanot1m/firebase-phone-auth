@@ -14,8 +14,8 @@
             badge: "bottomleft" //' bottomright' or 'inline' applies to invisible.
           },
           defaultCountry: "RU",
-          defaultNationalNumber: "1234567890",
-          loginHint: ""
+          defaultNationalNumber: "",
+          loginHint: "+79997654321"
         }
       ],
       callbacks: {
