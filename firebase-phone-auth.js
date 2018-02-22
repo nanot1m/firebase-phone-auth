@@ -23,16 +23,7 @@
           // Do something.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
-          alert(
-            JSON.stringify(
-              {
-                currentUser: currentUser,
-                credential: credential
-              },
-              null,
-              4
-            )
-          );
+          window.postMessage(currentUser);
           return true;
         },
         signInFailure: function(error) {
@@ -41,7 +32,7 @@
           // will reset, clearing any UI. This commonly occurs for error code
           // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
           // occurs. Check below for more details on this.
-          alert("It's a disaster: " + error.message);
+          window.postMessage(error);
           return false;
         }
       },
