@@ -27,7 +27,8 @@
             JSON.stringify({
               success: true,
               currentUser: currentUser,
-              credential: credential
+              credential: credential,
+              token: currentUser.getToken()
             })
           );
           return true;
