@@ -15,7 +15,7 @@
           },
           defaultCountry: "RU",
           defaultNationalNumber: "1234567890",
-          loginHint: "+71234567890"
+          loginHint: ""
         }
       ],
       callbacks: {
