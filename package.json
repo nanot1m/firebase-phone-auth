@@ -1,0 +1,9 @@
+{
+  "name": "firebase-phone-auth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
