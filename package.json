@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
   "devDependencies": {
     "gh-pages": "^1.1.0"
   }
