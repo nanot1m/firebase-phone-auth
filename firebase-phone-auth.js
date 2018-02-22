@@ -23,7 +23,16 @@
           // Do something.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
-          alert(credential);
+          alert(
+            JSON.stringify(
+              {
+                currentUser: currentUser,
+                credential: credential
+              },
+              null,
+              4
+            )
+          );
           return true;
         },
         signInFailure: function(error) {
