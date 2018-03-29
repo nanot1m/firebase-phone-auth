@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d webview-page"
   },
   "devDependencies": {
     "gh-pages": "^1.1.0"
+  },
+  "dependencies": {
+    "firebase-admin": "^5.11.0",
+    "firebase-functions": "^0.9.1"
   }
 }

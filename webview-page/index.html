@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/ui/2.6.0/firebase-ui-auth__ru.js"></script> -->
+  <!-- <script src="firebase-phone-auth.js"></script> -->
+  <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.6.0/firebase-ui-auth.css" /> -->
+</head>
+
+<body>
+  <div id="firebaseui-auth-container">
+    <form id="RequestCodeForm">
+      <p>
+        <label for="Phone">Phone</label>
+        <input id="Phone" type="tel" name="phone" required>
+      </p>
+      <button>Send code</button>
+    </form>
+    <form id="ValidateCodeForm">
+      <p>
+        <label for="ConfirmationCode">Confirmation Code</label>
+        <input id="ConfirmationCode" type="text" name="code" required>
+      </p>
+      <button>Check code</button>
+    </form>
+    <button id="sign-in-button">SignIn</button>
+  </div>
+</body>
+
+</html>
