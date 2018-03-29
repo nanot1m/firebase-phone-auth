@@ -23,14 +23,11 @@
           // Do something.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
-          window.postMessage(
-            JSON.stringify({
-              success: true,
-              currentUser: currentUser,
-              credential: credential,
-              token: currentUser.getToken()
-            })
-          );
+          firebase
+            .auth()
+            .createCustomToken(currentUser.uid)
+            .then(token => window.postMessage(JSON.stringify({ token })));
+
           return true;
         },
         signInFailure: function(error) {
