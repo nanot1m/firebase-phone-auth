@@ -18,7 +18,29 @@
       ],
       callbacks: {
         signInSuccess: function(currentUser, credential, redirectUrl) {
-          var uid = currentUser.uid;
+          firebase
+            .functions()
+            .httpsCallable("getAuthenticationToken")()
+            .then(
+              result => {
+                window.postMessage(
+                  JSON.stringify({
+                    success: true,
+                    data: result.data
+                  })
+                );
+              },
+              error => {
+                window.postMessage(
+                  JSON.stringify({
+                    success: false,
+                    error: {
+                      message: error ? error.message : "Unknown error"
+                    }
+                  })
+                );
+              }
+            );
         },
         signInFailure: function(error) {
           window.postMessage(
