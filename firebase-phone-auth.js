@@ -22,27 +22,32 @@
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           alert("SUCCESS");
-          return firebase
-            .auth()
-            .createCustomToken(currentUser.uid)
-            .then(function(token) {
-              alert(token);
-              window.postMessage(
-                JSON.stringify({
-                  success: true,
-                  data: { token: token }
-                })
-              );
-            })
-            .catch(function(error) {
-              alert("ERROR " + error.message);
-              window.postMessage(
-                JSON.stringify({
-                  success: false,
-                  error: { message: error ? error.message : "unknown error" }
-                })
-              );
-            });
+          try {
+            firebase
+              .auth()
+              .createCustomToken(currentUser.uid)
+              .then(function(token) {
+                alert(token);
+                window.postMessage(
+                  JSON.stringify({
+                    success: true,
+                    data: { token: token }
+                  })
+                );
+              })
+              .catch(function(error) {
+                alert("ERROR " + error.message);
+                window.postMessage(
+                  JSON.stringify({
+                    success: false,
+                    error: { message: error ? error.message : "unknown error" }
+                  })
+                );
+              });
+          } catch (ex) {
+            alert(ex.message);
+          }
+          throw new Error("ERROR");
         },
         signInFailure: function(error) {
           // Some unrecoverable error occurred during sign-in.
