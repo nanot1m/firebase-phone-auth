@@ -25,7 +25,7 @@
               result => {
                 window.postMessage(
                   JSON.stringify({
-                    success: false,
+                    success: true,
                     data: result.data
                   })
                 );
