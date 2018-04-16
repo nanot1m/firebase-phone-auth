@@ -1,8 +1,6 @@
 // Initialize Firebase
 (function(global, firebase, firebaseui) {
   function runAuth(config) {
-    firebase.initializeApp(config);
-
     // FirebaseUI config.
     var uiConfig = {
       signInOptions: [
@@ -45,6 +43,7 @@
                 })
               );
             });
+          return false;
         },
         signInFailure: function(error) {
           // Some unrecoverable error occurred during sign-in.
@@ -65,7 +64,7 @@
       // Terms of service url.
       tosUrl: "https://youlook-3d5d5.firebaseapp.com"
     };
-
+    firebase.initializeApp(config);
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
