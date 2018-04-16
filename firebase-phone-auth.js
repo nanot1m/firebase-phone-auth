@@ -26,7 +26,14 @@
           firebase
             .auth()
             .createCustomToken(currentUser.uid)
-            .then(token => window.postMessage(JSON.stringify({ token })));
+            .then(function(token) {
+              window.postMessage(
+                JSON.stringify({
+                  success: true,
+                  data: { token: token }
+                })
+              );
+            });
 
           return true;
         },
