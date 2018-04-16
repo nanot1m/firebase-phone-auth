@@ -18,42 +18,19 @@
       ],
       callbacks: {
         signInSuccess: function(currentUser, credential, redirectUrl) {
-          // Do something.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          alert("SUCCESS");
-          try {
-            // firebase.auth();
-            // .createCustomToken(currentUser.uid)
-            // .then(function(token) {
-            //   alert(token);
-            //   window.postMessage(
-            //     JSON.stringify({
-            //       success: true,
-            //       data: { token: token }
-            //     })
-            //   );
-            // })
-            // .catch(function(error) {
-            //   alert("ERROR " + error.message);
-            //   window.postMessage(
-            //     JSON.stringify({
-            //       success: false,
-            //       error: { message: error ? error.message : "unknown error" }
-            //     })
-            //   );
-            // });
-          } catch (ex) {
-            alert(ex.message);
-          }
-          alert("END");
+          firebase
+            .functions()
+            .httpsCallable("getAuthenticationToken")()
+            .then(result => {
+              window.postMessage(
+                JSON.stringify({
+                  success: false,
+                  data: result.data
+                })
+              );
+            });
         },
         signInFailure: function(error) {
-          // Some unrecoverable error occurred during sign-in.
-          // Return a promise when error handling is completed and FirebaseUI
-          // will reset, clearing any UI. This commonly occurs for error code
-          // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
-          // occurs. Check below for more details on this.
           window.postMessage(
             JSON.stringify({
               success: false,
