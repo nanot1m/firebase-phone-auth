@@ -21,14 +21,26 @@
           firebase
             .functions()
             .httpsCallable("getAuthenticationToken")()
-            .then(result => {
-              window.postMessage(
-                JSON.stringify({
-                  success: false,
-                  data: result.data
-                })
-              );
-            });
+            .then(
+              result => {
+                window.postMessage(
+                  JSON.stringify({
+                    success: false,
+                    data: result.data
+                  })
+                );
+              },
+              error => {
+                window.postMessage(
+                  JSON.stringify({
+                    success: false,
+                    error: {
+                      message: error ? error.message : "Unknown error"
+                    }
+                  })
+                );
+              }
+            );
         },
         signInFailure: function(error) {
           window.postMessage(
