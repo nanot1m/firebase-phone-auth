@@ -28,6 +28,7 @@
             .auth()
             .createCustomToken(currentUser.uid)
             .then(function(token) {
+              alert(token);
               window.postMessage(
                 JSON.stringify({
                   success: true,
@@ -36,6 +37,7 @@
               );
             })
             .catch(function(error) {
+              alert("ERROR " + error.message);
               window.postMessage(
                 JSON.stringify({
                   success: false,
