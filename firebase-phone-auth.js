@@ -23,27 +23,26 @@
           // or whether we leave that to developer to handle.
           alert("SUCCESS");
           try {
-            firebase
-              .auth()
-              .createCustomToken(currentUser.uid)
-              .then(function(token) {
-                alert(token);
-                window.postMessage(
-                  JSON.stringify({
-                    success: true,
-                    data: { token: token }
-                  })
-                );
-              })
-              .catch(function(error) {
-                alert("ERROR " + error.message);
-                window.postMessage(
-                  JSON.stringify({
-                    success: false,
-                    error: { message: error ? error.message : "unknown error" }
-                  })
-                );
-              });
+            firebase.auth();
+            // .createCustomToken(currentUser.uid)
+            // .then(function(token) {
+            //   alert(token);
+            //   window.postMessage(
+            //     JSON.stringify({
+            //       success: true,
+            //       data: { token: token }
+            //     })
+            //   );
+            // })
+            // .catch(function(error) {
+            //   alert("ERROR " + error.message);
+            //   window.postMessage(
+            //     JSON.stringify({
+            //       success: false,
+            //       error: { message: error ? error.message : "unknown error" }
+            //     })
+            //   );
+            // });
           } catch (ex) {
             alert(ex.message);
           }
