@@ -22,7 +22,7 @@
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           alert("SUCCESS");
-          firebase
+          return firebase
             .auth()
             .createCustomToken(currentUser.uid)
             .then(function(token) {
@@ -43,7 +43,6 @@
                 })
               );
             });
-          return false;
         },
         signInFailure: function(error) {
           // Some unrecoverable error occurred during sign-in.
