@@ -26,14 +26,24 @@
           firebase
             .auth()
             .createCustomToken(currentUser.uid)
-            .then(function(token) {
-              window.postMessage(
-                JSON.stringify({
-                  success: true,
-                  data: { token: token }
-                })
-              );
-            });
+            .then(
+              function(token) {
+                window.postMessage(
+                  JSON.stringify({
+                    success: true,
+                    data: { token: token }
+                  })
+                );
+              },
+              function(error) {
+                window.postMessage(
+                  JSON.stringify({
+                    success: false,
+                    error: { message: error ? error.message : "unknown error" }
+                  })
+                );
+              }
+            );
 
           return true;
         },
