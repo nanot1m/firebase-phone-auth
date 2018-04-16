@@ -42,8 +42,6 @@
                 })
               );
             });
-
-          return true;
         },
         signInFailure: function(error) {
           // Some unrecoverable error occurred during sign-in.
@@ -59,7 +57,6 @@
               }
             })
           );
-          return false;
         }
       },
       // Terms of service url.
