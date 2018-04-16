@@ -47,7 +47,7 @@
           } catch (ex) {
             alert(ex.message);
           }
-          throw new Error("ERROR");
+          alert("END");
         },
         signInFailure: function(error) {
           // Some unrecoverable error occurred during sign-in.
