@@ -46,7 +46,9 @@
           window.postMessage(
             JSON.stringify({
               success: false,
-              error: error ? error.message : "Unknown error"
+              error: {
+                message: error ? error.message : "Unknown error"
+              }
             })
           );
           return false;
