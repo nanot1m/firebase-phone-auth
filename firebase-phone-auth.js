@@ -23,7 +23,7 @@
           // or whether we leave that to developer to handle.
           alert("SUCCESS");
           try {
-            firebase.auth();
+            // firebase.auth();
             // .createCustomToken(currentUser.uid)
             // .then(function(token) {
             //   alert(token);
